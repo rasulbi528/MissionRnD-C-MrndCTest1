@@ -44,8 +44,10 @@ int getCount(struct node* head)
 	return count;
 }
 int merge_circularlists(struct node **head1, struct node **head2){
+	
 	if (head1 && head2)
 	{
+
 		struct node *ptr;
 		if (head1 == NULL)
 		{
@@ -54,12 +56,12 @@ int merge_circularlists(struct node **head1, struct node **head2){
 		}
 		if (head2 == NULL)
 			return getCount(*head1);
-		ptr =head1->next;
-     head1->next = head2->next;
-		head2->next = ptr;
+		ptr = (*head1)->next;
+		(*head1)->next = (*head2)->next;
+		(*head2)->next = ptr;
 		head1 = head2;
 		return getCount(*head1);
+
 	}
-	else
 	return -1;
 }
